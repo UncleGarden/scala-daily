@@ -1,0 +1,31 @@
+1.
+Some(x) how to get value
+	- Some(x).getOrElse(null)
+
+2.
+*** built-in functions: filter, ...
+
+3. 
+scalatest
+code coverage
+
+4.
+scala @deprecated
+
+https://coderwall.com/p/k4ulyg/scala-deprecated-annotation
+
+http://stackoverflow.com/questions/9355143/can-i-mark-a-function-as-deprecated-in-scala
+
+http://www.swanlinux.net/2014/10/22/scala_note_15/
+
+5.
+scala md5
+
+http://snipplr.com/view/4321/
+
+https://stevenwilliamalexander.wordpress.com/2012/06/11/scala-md5-hash-function-for-scala-console/
+
+https://gist.github.com/amscotti/2467512
+
+6.
+read file.

@@ -42,12 +42,42 @@ def sumCubes(a: Int, b: Int) = sum(x => x * x * x, a, b)
 ====
 
 
+===========================================
+
+Expansion of Multiple Parameter Lists
+
+In general, a definition of a function with multiple parameter Lists
+		def f(args1)...(argsn) = E
+		
+where n > 1, is equivalent to 
+		def f(args1)...(argsn-1) = { def g(argsn) = E; g}
+where g is a fresh identifier. Or even shorter using anonymous function:
+		def f(args1)...(argsn-1) = (argsn => E)
 
 
+repeat the process n times
+		def f = (args1 => (args2 => ..(argsn => E)))
+		
+This style of definition and function application is called currying.
+
+Exercise:
+def product(f: Int => Int)(a: Int, b: Int): Int = 
+	if (a > b) 1
+	else f(a) * product(f)(a+1, b)
+product(x => x*x)(3, 4) //144
+	
+def fact(n: Int) = product(x => x)(1, n)
+fact(5) //120
+
+def mapReduce(f: Int: Int, combine: (Int, Int) => Int, zero: Int)(a: Int, b: Int): Int =
+	if(a > b) zero
+	else combine(f(a), mapReduce(f, combine, zero)(a+1, b))
+
+=== re-write product
+def product(f: Int => Int)(a: Int, b: Int): Int = mapReduce(f, (x, y) => x*y, 1)(a, b)
+===
 
 
-
-
-
+===========================================
 
 
